@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Application</title>
+</head>
+<body>
+<h1>BMCC STEM Connect</h1>
+
+<a href="/">Students</a> |
+<a href="/internships">Internships</a> |
+<a href="/applications">Applications</a>
+
+<hr>
+<h1>Edit Application</h1>
+
+<form action="/update_application/{{ application[0] }}" method="POST">
+
+    Student:<br>
+    <select name="student_id" required>
+        {% for student in students %}
+        <option value="{{ student[0] }}" {% if student[0] == application[1] %}selected{% endif %}>
+            {{ student[1] }}
+        </option>
+        {% endfor %}
+    </select><br><br>
+
+    Internship:<br>
+    <select name="internship_id" required>
+        {% for internship in internships %}
+        <option value="{{ internship[0] }}" {% if internship[0] == application[2] %}selected{% endif %}>
+            {{ internship[1] }} - {{ internship[2] }}
+        </option>
+        {% endfor %}
+    </select><br><br>
+
+    Status:<br>
+    <input type="text" name="status" value="{{ application[3] }}" required><br><br>
+
+    <button type="submit">Update Application</button>
+</form>
+
+<br>
+<a href="/applications">Back to Applications</a>
+
+</body>
+</html>

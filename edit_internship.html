@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Internship</title>
+</head>
+<body>
+<h1>BMCC STEM Connect</h1>
+
+<a href="/">Students</a> |
+<a href="/internships">Internships</a> |
+<a href="/applications">Applications</a>
+
+<hr>
+<h1>Edit Internship</h1>
+
+<form action="/update_internship/{{ internship[0] }}" method="POST">
+    Company:<br>
+    <input type="text" name="company" value="{{ internship[1] }}" required><br><br>
+
+    Position:<br>
+    <input type="text" name="position" value="{{ internship[2] }}" required><br><br>
+
+    Location:<br>
+    <input type="text" name="location" value="{{ internship[3] }}" required><br><br>
+
+    <button type="submit">Update Internship</button>
+</form>
+
+<br>
+<a href="/internships">Back to Internships</a>
+
+</body>
+</html>
